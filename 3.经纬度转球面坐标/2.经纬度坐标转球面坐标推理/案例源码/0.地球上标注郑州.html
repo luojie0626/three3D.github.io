@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Three.js中文网：http://www.webgl3d.cn/</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+    }
+  </style>
+</head>
+
+<body>
+  <script type="module">
+    import { scene, renderer } from './scene.js'
+    //Three.js渲染结果Canvas画布插入到body元素中
+    document.body.appendChild(renderer.domElement); 
+
+
+    import { createHelpSphereMesh } from './help.js'
+    import { lon2xyz } from './math.js'
+    var R = 100;//地球半径
+    // 郑州经纬度113.5、34.5
+    var pos = lon2xyz(R,113.5,34.5);//郑州球面坐标
+    // var pos = lon2xyz(R,110.35,20.02);//海南海口110.35	20.02	
+    // 地球球面上标注郑州
+    scene.add(createHelpSphereMesh(1,pos.x,pos.y,pos.z));
+
+  </script>
+</body>
+
+</html>

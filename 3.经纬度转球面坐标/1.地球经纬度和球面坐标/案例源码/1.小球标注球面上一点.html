@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Three.js中文网：http://www.webgl3d.cn/</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+    }
+  </style>
+</head>
+
+<body>
+  <script type="module">
+    import { scene, renderer } from './scene.js'
+    //Three.js渲染结果Canvas画布插入到body元素中
+    document.body.appendChild(renderer.domElement); 
+    
+    // 创建地球mesh
+    var R = 100;//地球半径
+    import { createSphereMesh } from './help.js'
+    // 北极球面上绘制一个小球标注
+    scene.add(createSphereMesh(10,0,R,0));
+
+  </script>
+</body>
+
+</html>
